@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { UserprofileComponent } from './userprofile/userprofile.component';
 import { ImageListComponent } from './image-list/image-list.component';
 import { ImageComponent } from './image/image.component';
+import { UploadComponent } from './upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ImageComponent } from './image/image.component';
     HomeComponent,
     UserprofileComponent,
     ImageListComponent,
-    ImageComponent
+    ImageComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule
