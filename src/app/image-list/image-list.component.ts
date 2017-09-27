@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ImageService} from '../services/image.service';
+import {Observable} from 'rxjs/Observable';
+import { ImageDetails } from '../models/imageDetails.model';
 
 @Component({
   selector: 'app-image-list',
@@ -6,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./image-list.component.css']
 })
 export class ImageListComponent implements OnInit {
+  imageList: Observable<ImageDetails[]>;
 
-  constructor() { }
+  constructor(private imageService: ImageService) {  }
 
   ngOnInit() {
+    this.imageList = imageService.getImages();
   }
 
 }
