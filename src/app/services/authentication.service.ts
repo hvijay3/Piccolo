@@ -4,6 +4,7 @@ import * as firebase from 'firebase/app';
 import { Observable } from 'rxjs/Observable';
 import { User } from '../models/user.model';
 
+
 @Injectable()
 export class AuthenticationService {
 
@@ -24,4 +25,5 @@ export class AuthenticationService {
   authUser() {
     return this.user;
   }
+
 }

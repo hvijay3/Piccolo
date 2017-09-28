@@ -13,4 +13,5 @@ export const environment = {
     storageBucket: '',
     messagingSenderId: '91261062552'
   }
+
 };

@@ -25,7 +25,6 @@ import {AuthenticationService} from './services/authentication.service';
 import {environment} from '../environments/environment';
 import {UploadService} from './services/upload.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,

@@ -1,4 +1,5 @@
 export const environment = {
+
   production: true,
   firebase: {
     apiKey: 'AIzaSyC8N2176E4C-CbbhEVNsG3uRfFE-6x_W4M',
@@ -8,4 +9,5 @@ export const environment = {
     storageBucket: '',
     messagingSenderId: '91261062552'
   }
+
 };

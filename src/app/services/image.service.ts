@@ -15,6 +15,7 @@ export class ImageService  {
     this.authService.authState.subscribe(auth => {     // authState is an observable and we have subscribed to it
       if (auth !== undefined && auth !== null) {
       this.userId = auth.uid;
+
       }
     });
    }

@@ -6,6 +6,7 @@ import * as firebase from 'firebase/app';
 
 @Component({
   selector: 'app-navbar',
+
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
