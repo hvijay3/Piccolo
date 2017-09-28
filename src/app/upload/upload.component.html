@@ -2,9 +2,9 @@
 <div *ngIf="upload">
   <div class="progress">
     <div class="progress-bar progress-bar-animated" 
-    [ngStyle]="{ 'width': upload?.progress + '%' }"></div>
+    [ngStyle]="{ 'width': upload?.status + '%' }"></div>
   </div>
-  Progress: {{upload?.progress}}% Complete
+  Progress: {{upload?.status}}% Complete
 </div>
 <div class="container">
   <h2 class="heading">Upload New Images</h2>
