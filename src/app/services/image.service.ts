@@ -26,4 +26,9 @@ this.userId = auth.uid;
   return this.dbService.list('uploads');        // here while retrieving we can also send userid with uploads
   }
 
+  /* method to retrieve image specific details using key */
+  getImage(key: string) {
+    return firebase.database().ref('uploads/' + key).once('value')
+      .then((snap) => snap.val());
+  }
 }
