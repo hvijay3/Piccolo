@@ -10,6 +10,7 @@ import { UserprofileComponent } from './userprofile/userprofile.component';
 import { ImageListComponent } from './image-list/image-list.component';
 import { ImageComponent } from './image/image.component';
 import { UploadComponent } from './upload/upload.component';
+import {ImageService} from './services/image.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,7 @@ import { UploadComponent } from './upload/upload.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [ImageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
