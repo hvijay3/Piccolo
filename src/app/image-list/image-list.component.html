@@ -1,0 +1,18 @@
+ <!-- instead of image.$key we can think of generating some random value
+                                                                async gives us an option to subscribe to observable images
+                                                                with image we have to display image-info component 
+                                                                ( comnments and likes)-->
+
+
+<div class="row">
+  <h2>Latest Photos</h2>
+  <ul id="thumbnailsList">
+      <li *ngFor="let image of images | async" class="img">   
+          <a [routerLink]="['/image', image.$key]">
+          <img src="{{image.url}}" class="tn">
+          </a>
+      </li>
+  </ul>
+</div>
+
+
