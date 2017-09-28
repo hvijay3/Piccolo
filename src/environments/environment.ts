@@ -6,12 +6,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyC8N2176E4C-CbbhEVNsG3uRfFE-6x_W4M',
-    authDomain: 'picolo-ada6e.firebaseapp.com',
-    databaseURL: 'https://picolo-ada6e.firebaseio.com',
-    projectId: 'picolo-ada6e',
-    storageBucket: '',
-    messagingSenderId: '91261062552'
+    apiKey: 'AIzaSyDXWv1ExiL5gqabFy1pYeZOJnu50BdEFSE',
+    authDomain: 'piccolo-f0de4.firebaseapp.com',
+    databaseURL: 'https://piccolo-f0de4.firebaseio.com',
+    projectId: 'piccolo-f0de4',
+    storageBucket: 'piccolo-f0de4.appspot.com',
+    messagingSenderId: '1056500030000'
   }
-
 };
