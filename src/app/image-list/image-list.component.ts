@@ -9,11 +9,11 @@ import { ImageDetails } from '../models/imageDetails.model';
   styleUrls: ['./image-list.component.css']
 })
 export class ImageListComponent implements OnInit {
-  imageList: Observable<ImageDetails[]>;
+  images: Observable<ImageDetails[]>;
 
   constructor(private imageService: ImageService) {  }
 
   ngOnInit() {
-    this.imageList = this.imageService.getImages();
+    this.images = this.imageService.getImages();
   }
 }
