@@ -25,7 +25,7 @@ import {AuthenticationService} from './services/authentication.service';
 import {environment} from '../environments/environment';
 import {UploadService} from './services/upload.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule } from '@angular/material';
+import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule, MatIconModule, MatCardModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -51,7 +51,8 @@ import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModu
     MdMenuModule,
     MdCardModule,
     MdToolbarModule,
-    MdIconModule
+    MdIconModule,
+    MatCardModule
   ],
 
   providers: [AuthenticationService,
