@@ -24,6 +24,8 @@ import {AuthenticationService} from './services/authentication.service';
 
 import {environment} from '../environments/environment';
 import {UploadService} from './services/upload.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule, MatIconModule, MatCardModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,14 @@ import {UploadService} from './services/upload.service';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    BrowserAnimationsModule,
+    MdButtonModule,
+    MdMenuModule,
+    MdCardModule,
+    MdToolbarModule,
+    MdIconModule,
+    MatCardModule
   ],
 
   providers: [AuthenticationService,
