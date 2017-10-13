@@ -1,56 +1,22 @@
- <!-- instead of image.$key we can think of generating some random value
+<!-- instead of image.$key we can think of generating some random value
  async gives us an option to subscribe to observable images
  with image we have to display image-info component 
  ( comnments and likes)-->
 
-<!-- <div fxLayout="row" fxLayoutAlign="center center">
-    <div class="parent-container">            
-        <md-card style="height: 50em">
-            <div fxLayout="row">
-                <md-card-title>My Photos</md-card-title>
-            </div>
-            <md-card-content>
-                <md-grid-list cols="3" rowHeight="200px"> 
-                        <md-grid-tile *ngFor="let image of images | async" [routerLink]="['/image', image.$key]" >
-                            <div class = "thumbnail">                        
-                                <img src="{{image.url}}" class="tn">  
-                                <md-card-actions>
-                                        <button md-button>Like</button>
-                                        <button md-button>Dislike</button>
-                                </md-card-actions>                              
-                            </div>
-                        </md-grid-tile>
-                 </md-grid-list>
-
-                 
-             </md-card-content>
-        </md-card> 
-    </div>
-</div> -->
-
 <div fxLayout="row" fxLayoutAlign="center center">
-    <div class="parent-container">            
+    <div class="parent-container">
         <div fxLayout="row">
+        </div>
+        <md-grid-list cols="3" rowHeight="200px">
+            <md-grid-tile *ngFor="let image of images | async" [routerLink]="['/image', image.$key]">
+                <div class="thumbnail">
+                    <md-card class=m yimages>
+                        <img src="{{image.url}}" class="tn">
+                    </md-card>
+                </div>
+            </md-grid-tile>
+        </md-grid-list>
     </div>
-    <md-grid-list cols="3" rowHeight="200px"> 
-        <md-grid-tile *ngFor="let image of images | async" [routerLink]="['/image', image.$key]" >
-            <div class = "thumbnail">  
-                <md-card class = myimages>
-                    <md-card-header>
-                        <md-card-title>Arsenal</md-card-title>
-                    </md-card-header>                                          
-                    <img src="{{image.url}}" class="tn"> 
-                    <md-card-content>
-                        <!-- Add comment box here -->
-                    </md-card-content>
-                    <md-card-actions>
-                        <button md-button>Like</button>
-                        <button md-button>Dislike</button>
-                    </md-card-actions>
-                </md-card>                             
-            </div>
-        </md-grid-tile>
-    </md-grid-list>                    
- 
 </div>
-
+    
+    
