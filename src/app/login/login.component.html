@@ -13,5 +13,9 @@
     </div>
     <button [disabled]="!loginForm.form.valid" id= "loginbtn" type="submit" class="btn btn-info btn-lg" (click)="signIn()">Sign In</button>
     <p *ngIf="errorMsg" class="text-danger">{{errorMsg}}</p>
+    <br><br>
+    <a routerLink="/signup">New User!! Create an account</a>
   </form>
 </div>
+
+
