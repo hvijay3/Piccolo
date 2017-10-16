@@ -3,6 +3,11 @@ import { ImageService } from '../services/image.service';
 import { ActivatedRoute } from '@angular/router';
 import { ImageDetails } from '../models/imageDetails.model';
 import { Observable } from 'rxjs/Observable';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { Upload } from '../models/upload.model';
+import { Comment } from '../models/comment.model';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-image',
@@ -11,6 +16,11 @@ import { Observable } from 'rxjs/Observable';
 })
 export class ImageComponent implements OnInit {
   private imageUrl = '';
+  private objRef = '';
+  private rootDir = '';
+  private comment: Comment;
+  private ngFire: AngularFireModule;
+  private dbObject: AngularFireDatabase;
 
   constructor(private imageService: ImageService, private route: ActivatedRoute) { }
 
@@ -22,4 +32,22 @@ export class ImageComponent implements OnInit {
   ngOnInit() {
     this.getUrl(this.route.snapshot.params['id']);
   }
+
+  addComment() {
+    console.log('Image key is :' +this.route.snapshot.params['id']);
+    this.objRef = this.route.snapshot.params['id'];
+    // console.log(this.objRef);
+    this.rootDir = '/uploads/' + this.objRef;
+    console.log(this.rootDir);
+    const storageRef = firebase.storage().ref();
+    console.log(storageRef);
+    this.comment.author = "Rahul";
+    this.comment.data = "Helllooo";
+    this.writeCommentData(this.comment);
+    }
+  
+    private writeCommentData(comment: Comment){
+      this.dbObject.list(`${this.rootDir}/`).push(comment);
+      console.log('Comment saved!: ' + comment);
+    }
 }

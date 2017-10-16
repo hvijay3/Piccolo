@@ -1,6 +1,28 @@
-<div class="row">
+<!-- <div class="row">
   <div class=col-md-12>
     <div [ngStyle]="{'background-image':'url('+ imageUrl +')'}" class="img-container">
+    </div>
+  </div>
+</div> -->
+
+<div class="container">
+    <div class=col-md-12>
+        <div [ngStyle]="{'background-image':'url('+ imageUrl +')'}" class="img-container imageb">
+        </div>
+      </div>
+  <div class="comment-box">
+    <div class="comment-form">
+      <div class="header">Add Your Comment</div>
+      <form>
+        <div>
+          <textarea id="comment" rows="3" cols="30" placeholder="Comment"></textarea>
+        </div>
+        <button type="submit" (click)="addComment()">COMMENT</button>
+      </form>
+    </div>
+    <div>
+      <h4 class="header">Comments</h4>
+      <div id="comments"></div>
     </div>
   </div>
 </div>
