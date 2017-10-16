@@ -11,7 +11,7 @@
       <input class="form-control" #passwordControl="ngModel" placeholder="Password" [(ngModel)]="password" name="password" maxlength="70"
         type="password" required>
     </div>
-    <button [disabled]="!loginForm.form.valid" type="submit" class="btn btn-info btn-lg" (click)="signIn()">Sign In</button>
+    <button [disabled]="!loginForm.form.valid" id= "loginbtn" type="submit" class="btn btn-info btn-lg" (click)="signIn()">Sign In</button>
     <p *ngIf="errorMsg" class="text-danger">{{errorMsg}}</p>
   </form>
 </div>

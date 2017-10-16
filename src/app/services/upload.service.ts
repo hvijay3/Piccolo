@@ -35,8 +35,12 @@ export class UploadService {
       // 3. Successful Uploads
       (): any => {
         // sets the properties for the Upload Model
+       // upload.creationDate = new Date();
         upload.url = uploadTask.snapshot.downloadURL;
         upload.name = upload.file.name;
+        upload.comment = "Hello";
+        console.log('Creation date!: ' + upload.creationDate);
+        console.log(upload);
         this.writeUploadData(upload);
       }
     );

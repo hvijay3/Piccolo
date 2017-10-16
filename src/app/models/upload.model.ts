@@ -2,10 +2,11 @@
 export class Upload {
     $key: string;
     url: string;
-    file: File;
+    file: File;    
     status: number;
-    creationDate: Date = new Date();
+    creationDate: string = new Date().toDateString();
     name: string;
+    comment: string;
 
     constructor (file: File) {
         this.file = file;
