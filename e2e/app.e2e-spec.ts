@@ -24,7 +24,7 @@ describe('insta App', () => {
   //     });
   // });
 
-  it('should sign in', () => {
+  it('Login page', () => {
 
     page.navigateTo();
     // Find page elements
