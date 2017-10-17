@@ -9,9 +9,9 @@ export class AppPage {
     return element(by.css('app-root h1')).getText();
   }
 
-  getPageTitle(){
+  getPageTitle() {
     // var some_name = 'Some Name';
-    console.log("Inside app.po");
+    console.log('Inside app.po');
     return browser.getTitle();
     // return browser.getTitle();
     // return 'Picolo';
