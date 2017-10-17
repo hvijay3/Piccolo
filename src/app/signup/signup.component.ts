@@ -1,15 +1,23 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent {
 
-  constructor() { }
+  email: string;
+  password: string;
+  errorMsg: string;
 
-  ngOnInit() {
+  constructor(private authService: AuthenticationService, private router: Router) { }
+
+  createAccount() {
+    this.authService.createAccount({ email: this.email, password: this.password })
+      .then(resolve => this.router.navigate(['login']))                 // a popup congratulating succesful signup or an error
+      .catch(error => this.errorMsg = error.message);
   }
-
 }

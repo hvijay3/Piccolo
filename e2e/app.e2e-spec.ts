@@ -15,7 +15,6 @@ describe('insta App', () => {
   //   // console.log(page.getWebTitle());
   //   expect(page.getWebTitle()).toEqual('Picolo');
   // });
-
   // it('should have right title', () => {
   //   page.navigateTo();
   //   page.getPageTitle()
@@ -23,8 +22,7 @@ describe('insta App', () => {
   //       expect(title).toEqual('Picolo');
   //     });
   // });
-
-  it('Login page', () => {
+  it('should sign in', () => {
 
     page.navigateTo();
     // Find page elements
