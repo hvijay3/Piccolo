@@ -44,10 +44,7 @@ describe('insta App', () => {
             expect(userPassField.getAttribute('value')).toEqual('piccologator1');
         
             // Click to sign up - waiting for Angular as it is manually bootstrapped.
-            userSignUpBtn.click().then( () => {
-            browser.waitForAngular();
-            expect(browser.driver.getCurrentUrl()).toMatch('/login');
-            });
+            userSignUpBtn.click();
           });
 
 
@@ -69,10 +66,7 @@ describe('insta App', () => {
     expect(userPassField.getAttribute('value')).toEqual('piccolo123');
 
     // Click to sign in - waiting for Angular as it is manually bootstrapped.
-    userLoginBtn.click().then( () => {
-    browser.waitForAngular();
-    expect(browser.driver.getCurrentUrl()).toMatch('/imagelist');
-    });
+    userLoginBtn.click();
   });
 
 });
