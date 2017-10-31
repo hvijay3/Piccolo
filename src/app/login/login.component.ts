@@ -20,4 +20,7 @@ export class LoginComponent {
       .then(resolve => this.router.navigate(['imagelist']))
       .catch(error => this.errorMsg = error.message);
   }
+  signup() {
+    this.router.navigate(['signup']);
+  }
 }

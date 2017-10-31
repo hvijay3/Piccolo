@@ -28,7 +28,7 @@ describe('insta App', () => {
   it('should sign up', () => {
     
           page.navigateTo();
-          var userSignUpBtnId = browser.driver.findElement(by.id('signUpid'));
+          var userSignUpBtnId = browser.driver.findElement(by.id('signupbtn'));
           userSignUpBtnId.click();
           // Find page elements
           var userNameField = browser.driver.findElement(by.name('email'));
