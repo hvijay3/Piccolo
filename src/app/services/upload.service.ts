@@ -4,14 +4,17 @@ import { ImageDetails } from '../models/imageDetails.model';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Upload } from '../models/upload.model';
 import * as firebase from 'firebase';
+import { ImageService } from './image.service';
 
 @Injectable()
 export class UploadService {
-
-  private rootDir = '/uploads';
+  private userId: String;
+  private rootDir = '';
   private uploads: FirebaseListObservable<ImageDetails[]>;
 
-  constructor(private ngFire: AngularFireModule, private dbObject: AngularFireDatabase) { }
+  constructor(private ngFire: AngularFireModule, private dbObject: AngularFireDatabase, private imageService: ImageService) {
+    this.rootDir = '/uploads/' + imageService.getUserId();
+   }
 
   uploadFile(upload: Upload) {
     // create a root reference

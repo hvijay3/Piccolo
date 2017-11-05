@@ -34,19 +34,19 @@ export class ImageComponent implements OnInit {
   }
 
   addComment() {
-    console.log('Image key is :' +this.route.snapshot.params['id']);
+    console.log('Image key is :' + this.route.snapshot.params['id']);
     this.objRef = this.route.snapshot.params['id'];
     // console.log(this.objRef);
     this.rootDir = '/uploads/' + this.objRef;
     console.log(this.rootDir);
     const storageRef = firebase.storage().ref();
     console.log(storageRef);
-    this.comment.author = "Rahul";
-    this.comment.data = "Helllooo";
+    this.comment.author = 'Rahul';
+    this.comment.data = 'Helllooo';
     this.writeCommentData(this.comment);
     }
-  
-    private writeCommentData(comment: Comment){
+
+    private writeCommentData(comment: Comment) {
       this.dbObject.list(`${this.rootDir}/`).push(comment);
       console.log('Comment saved!: ' + comment);
     }

@@ -14,6 +14,6 @@ export class ImageListComponent implements OnInit {
   constructor(private imageService: ImageService) {  }
 
   ngOnInit() {
-    this.images = this.imageService.getImages();    
+    this.images = this.imageService.getImages();
   }
 }
