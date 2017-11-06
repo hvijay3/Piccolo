@@ -25,13 +25,7 @@ import {AuthenticationService} from './services/authentication.service';
 import {environment} from '../environments/environment';
 import {UploadService} from './services/upload.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-<<<<<<< HEAD
-import { MatButtonModule, MatMenuModule, MatToolbarModule, MatIconModule, MatCardModule, MatButtonToggleModule } from '@angular/material';
-||||||| merged common ancestors
-import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule, MatIconModule, MatCardModule, MatButtonToggleModule } from '@angular/material';
-=======
 import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatButtonToggleModule } from '@angular/material';
->>>>>>> 7c29e23fe64c0be1f6e99294ddd6cd57bc5c01ed
 
 @NgModule({
   declarations: [
