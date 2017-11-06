@@ -1,6 +1,6 @@
 export interface ImageDetails {
 
-    $key: number;
-    $description: string;
-    $url: string;
+    key: string;
+    name: string;
+    url: string;
 }

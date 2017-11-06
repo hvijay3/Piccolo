@@ -2,7 +2,7 @@
 export class Upload {
     $key: string;
     url: string;
-    file: File;    
+    file: File;
     status: number;
     creationDate: string = new Date().toDateString();
     name: string;

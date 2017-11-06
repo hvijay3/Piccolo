@@ -22,6 +22,33 @@ describe('insta App', () => {
   //       expect(title).toEqual('Picolo');
   //     });
   // });
+
+  /* Method to test Sign Up functionality */
+
+  it('should sign up', () => {
+    
+          page.navigateTo();
+          var userSignUpBtnId = browser.driver.findElement(by.id('signupbtn'));
+          userSignUpBtnId.click();
+          // Find page elements
+          var userNameField = browser.driver.findElement(by.name('email'));
+          var userPassField = browser.driver.findElement(by.name('password'));
+          var userSignUpBtn = browser.driver.findElement(by.id('signUpbtn'));
+        
+            // Fill input fields
+            userNameField.sendKeys('piccologator1@gmail.com');
+            userPassField.sendKeys('piccologator1');
+        
+            // Ensure fields contain what we’ve entered
+            expect(userNameField.getAttribute('value')).toEqual('piccologator1@gmail.com');
+            expect(userPassField.getAttribute('value')).toEqual('piccologator1');
+        
+            // Click to sign up - waiting for Angular as it is manually bootstrapped.
+            userSignUpBtn.click();
+          });
+
+
+  /* Method to test Login Functionality */
   it('should sign in', () => {
 
     page.navigateTo();
@@ -39,10 +66,7 @@ describe('insta App', () => {
     expect(userPassField.getAttribute('value')).toEqual('piccolo123');
 
     // Click to sign in - waiting for Angular as it is manually bootstrapped.
-    userLoginBtn.click().then( () => {
-    browser.waitForAngular();
-    expect(browser.driver.getCurrentUrl()).toMatch('/imagelist');
-    });
+    userLoginBtn.click();
   });
 
 });
