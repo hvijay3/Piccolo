@@ -6,11 +6,15 @@
   </div>
   Progress: {{upload?.status}}% Complete
 </div>
-<div class="container">
+<div class="box">
   <h2 class="heading">Upload New Images</h2>
-  <input type="file" 
-  (change)="manageFiles($event)" multiple>
+  <label>
+    <input type="file" class="button"
+    (change)="manageFiles($event)" multiple>
+  </label>>
   <button class="btn btn-primary" 
-  (click)="uploadFiles()">Upload Images</button>
+  [disabled]= "!selectedFiles"
+  (click)="uploadFiles()">Upload Images
+</button>
 </div>
 </div>

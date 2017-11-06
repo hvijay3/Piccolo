@@ -10,24 +10,25 @@ import * as _ from 'lodash'; // allows easy looping over an array of files
 })
 export class UploadComponent {
 
-  files: FileList; // to allow selection of multiple files for upload at a time.
-  upload: Upload;
+  selectedFiles: FileList; // to allow selection of multiple files for upload at a time.
+  currentUpload: Upload;
 
   // injects the upload service
   constructor(private uploadService: UploadService) { }
 
+  // listens to the change event when a user selects an input file
   manageFiles (event) {
-    this.files = event.target.files;
+    this.selectedFiles = event.target.files;
   }
 
   uploadFiles() {
-    const filesToBeUploaded = this.files;
+    const filesToBeUploaded = this.selectedFiles;
     // console.log(_.range(filesToBeUploaded.length));
     const filesIndex = _.range(filesToBeUploaded.length);
     _.each(filesIndex, (index) => {
       // console.log(filesToBeUploaded[index]);
-      this.upload = new Upload(filesToBeUploaded[index]);
-      this.uploadService.uploadFile(this.upload);
+      this.currentUpload = new Upload(filesToBeUploaded[index]);
+      this.uploadService.uploadFile(this.currentUpload);
     });
   }
 }
