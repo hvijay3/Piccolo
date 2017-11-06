@@ -3,6 +3,7 @@ import { AngularFireModule } from 'angularfire2';
 import { ImageDetails } from '../models/imageDetails.model';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { Upload } from '../models/upload.model';
+import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 
 @Injectable()
@@ -11,7 +12,7 @@ export class UploadService {
   private rootDir = '/uploads';
   private uploads: FirebaseListObservable<ImageDetails[]>;
 
-  constructor(private ngFire: AngularFireModule, private dbObject: AngularFireDatabase) { }
+  constructor(private ngFire: AngularFireModule, private dbObject: AngularFireDatabase, private router: Router) { }
 
   uploadFile(upload: Upload) {
     // create a root reference
@@ -38,15 +39,36 @@ export class UploadService {
        // upload.creationDate = new Date();
         upload.url = uploadTask.snapshot.downloadURL;
         upload.name = upload.file.name;
-        upload.comment = "Hello";
+        upload.comment = 'Hello';
         console.log('Creation date!: ' + upload.creationDate);
         console.log(upload);
         this.writeUploadData(upload);
       }
     );
   }
+  // Writes the file details to real time database
   private writeUploadData(upload: Upload) {
     this.dbObject.list(`${this.rootDir}/`).push(upload);
     console.log('File saved!: ' + upload.url);
+  }
+
+  removeUpload(upload: ImageDetails, key: string) {
+    this.deleteUploadData(key)
+    .then( () => {
+      this.deleteUploadStorage(upload.name);
+    });
+  }
+
+  // Deletes the file details from the realtime database
+  private deleteUploadData(key: string) {
+    return this.dbObject.list(`${this.rootDir}/`).remove(key);
+  }
+
+  // Firebase files must have unique names in their respective storage dir
+  // So the name serves as a unique key
+  private deleteUploadStorage(name: string) {
+    const storageRef = firebase.storage().ref();
+    storageRef.child(`${this.rootDir}/${name}`).delete();
+    this.router.navigate(['imagelist']);
   }
 }
