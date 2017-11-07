@@ -10,7 +10,11 @@
         <div [ngStyle]="{'background-image':'url('+ imageUrl +')'}" class="img-container imageb">
         </div>
         <button (click)='deleteFileUpload()'
-        class="btn btn-danger btn-xs" style="float: right">Delete</button>
+        class="btn btn-danger btn-xs" style="float: right; margin-right: 20px">Delete</button> 
+        <button (click)='dislikeImage()'
+        class="btn btn-danger btn-xs" style="float: right">Dislike</button>       
+        <button (click)='likeImage()'
+        class="btn btn-danger btn-xs" style="float: right">Like</button>        
       </div>
   <div class="comment-box">
     <div class="comment-form">

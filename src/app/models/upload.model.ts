@@ -4,6 +4,8 @@ export class Upload {
     url: string;
     file: File;
     status: number;
+    like: number;
+    dislike: number;
     creationDate: string = new Date().toDateString();
     name: string;
     comment: string;
