@@ -23,7 +23,7 @@ export class ImageService  {
                                                asked from server and can take time to process.
                                                In order to use them we need to subscribe to them*/
   getImages(): Observable<ImageDetails[]> {
-  return this.dbService.list('uploads/' + this.userId + '/');        // here while retrieving we can also send userid with uploads
+    return this.dbService.list('uploads/' + this.userId + '/');        // here while retrieving we can also send userid with uploads
   }
 
   /* method to retrieve image specific details using key */
@@ -33,5 +33,9 @@ export class ImageService  {
   }
   getUserId(): String {
     return this.userId;
+  }
+
+  setUserId(uid: string) {
+    this.userId = uid;
   }
 }
