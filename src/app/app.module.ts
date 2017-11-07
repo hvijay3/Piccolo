@@ -26,6 +26,7 @@ import {environment} from '../environments/environment';
 import {UploadService} from './services/upload.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatButtonToggleModule } from '@angular/material';
+import { CommentComponent } from './comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIco
     UserprofileComponent,
     ImageListComponent,
     ImageComponent,
-    UploadComponent
+    UploadComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +61,7 @@ import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIco
   providers: [AuthenticationService,
     AuthenticationGuard,
     ImageService,
-    UploadService
+    UploadService,
     ],
   bootstrap: [AppComponent]
 })

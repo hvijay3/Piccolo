@@ -6,6 +6,8 @@ import { Upload } from '../models/upload.model';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { ImageService } from './image.service';
+import { Comment } from '../models/comment.model';
+
 
 @Injectable()
 export class UploadService {
@@ -47,6 +49,7 @@ export class UploadService {
         // Set default value for like and dislike
         upload.like = 0;
         upload.dislike = 0;
+       // upload.comment = null;
         console.log('Creation date!: ' + upload.creationDate);
         console.log(upload);
         this.writeUploadData(upload);
@@ -77,5 +80,11 @@ export class UploadService {
     const storageRef = firebase.storage().ref();
     storageRef.child(`${this.rootDir}/${name}`).delete();
     this.router.navigate(['imagelist']);
+  }
+
+  // method to write commentdata into database
+  writeCommentData(comment:Comment, path: string){
+    this.dbObject.list(path).push(comment);
+    console.log('Comment saved!: ' + comment);
   }
 }

@@ -5,6 +5,7 @@ import {AngularFireDatabase} from 'angularfire2/database';
 import {FirebaseApp} from 'angularfire2';
 import 'firebase/storage';
 import {ImageDetails} from '../models/imagedetails.model';
+import { Comment } from '../models/comment.model';
 import * as firebase from 'firebase';
 
 
@@ -33,5 +34,10 @@ export class ImageService  {
   }
   getUserId(): String {
     return this.userId;
+  }
+
+  // method to retrieve image specific comments using key
+  getComments(key: string): Observable<Comment[]> {
+    return this.dbService.list('comments/' + key);
   }
 }

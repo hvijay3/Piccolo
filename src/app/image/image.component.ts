@@ -19,7 +19,7 @@ export class ImageComponent implements OnInit {
   private imageUrl = '';
   private objRef = '';
   private rootDir = '';
-  private comment: Comment;
+  comment: Comment;
   private ngFire: AngularFireModule;
   private dbObject: AngularFireDatabase;
   private fileUpload: ImageDetails;
@@ -71,21 +71,30 @@ export class ImageComponent implements OnInit {
     db.ref('/uploads' + '/' + user + '/' + keyi).update({dislike: count});
   }
 
-  addComment() {
-    console.log('Image key is :' + this.route.snapshot.params['id']);
-    this.objRef = this.route.snapshot.params['id'];
-    // console.log(this.objRef);
-    this.rootDir = '/uploads/' + this.objRef;
-    console.log(this.rootDir);
-    const storageRef = firebase.storage().ref();    
-    console.log(storageRef);
-    this.comment.author = 'Rahul';
-    this.comment.data = 'Helllooo';
-    this.writeCommentData(this.comment);
-    }
+  // addComment() {
+  //   console.log('Image key is :' + this.route.snapshot.params['id']);
+  //   this.objRef = this.route.snapshot.params['id'];
+  //   // console.log(this.objRef);
+  //   var comments = (<HTMLInputElement>document.getElementById('comment')).value;
+  //   console.log(comments)
+  //   console.log('Inside addComment')
+  //   const user = this.imageService.getUserId();
+  //   console.log(user);
+  //   this.comment.author = user.toString();
+  //   this.comment.data = comments;
+  //   // this.rootDir = '/uploads/' + this.objRef;
+  //   // console.log(this.rootDir);
+  //   // const storageRef = firebase.storage().ref();    
+  //   // console.log(storageRef);
+  //   // this.comment.author = 'Rahul';
+  //   // this.comment.data = 'Helllooo';
+  //   var path = '/uploads/' + user + '/' + this.objRef + '/' +'comment';
+  //   this.writeCommentData(this.comment, path);
+  // }
 
-    private writeCommentData(comment: Comment) {
-      this.dbObject.list(`${this.rootDir}/`).push(comment);
-      console.log('Comment saved!: ' + comment);
-    }
+  //   private writeCommentData(comment: Comment, path: string) {
+
+  //     this.dbObject.list(path).push(comment);
+  //     console.log('Comment saved!: ' + comment);
+  //   }
 }

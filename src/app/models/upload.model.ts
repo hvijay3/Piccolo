@@ -8,7 +8,7 @@ export class Upload {
     dislike: number;
     creationDate: string = new Date().toDateString();
     name: string;
-    comment: string;
+    //comment: string;
 
     constructor (file: File) {
         this.file = file;
