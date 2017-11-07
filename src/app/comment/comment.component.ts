@@ -31,6 +31,11 @@ export class CommentComponent implements OnInit {
     this.comments = this.imageService.getComments(this.keyi);   
   }
 
+  displaycomment(){
+    this.comments = this.imageService.getComments(this.keyi);
+    console.log('Comments are' + this.comments);
+  }
+
   addComment() {
     console.log('Image key is :' + this.route.snapshot.params['id']);
     var data = (<HTMLInputElement>document.getElementById('comment')).value;
@@ -45,6 +50,7 @@ export class CommentComponent implements OnInit {
     console.log(path);
     console.log('calling write method');
     this.uploadService.writeCommentData(this.comment, path);
+    this.displaycomment();
   }
 
 

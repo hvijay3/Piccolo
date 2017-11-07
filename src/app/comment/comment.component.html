@@ -12,7 +12,7 @@
       <h4 class="header">Comments</h4>
       <div id="comments">
           <div *ngFor="let comment of comments | async">
-              {{comment.$value}}
+              {{comment.data}}
           </div>
       </div>
     </div>
