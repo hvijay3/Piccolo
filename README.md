@@ -1,6 +1,14 @@
-# Insta
+# Piccolo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.2
+This project is a basic clone of instagram application with functionalities such as maintaining user specific image database. You can create your profile , explore other people profiles . Give your comments , like or dislike on other people images. Apart from that you can also make friends and keep privacy.
+
+## Installing 
+
+A step by step series that tells you how to get a development env running
+    1) Clone the repository and go to the insta folder
+    2) Run npm install -> This will download all the dependencies
+    3) Run ng serve
+    4) Open localhost:4200 
 
 ## Development server
 
