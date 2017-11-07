@@ -1,0 +1,19 @@
+<div class="comment-box">
+    <div class="comment-form">
+      <div class="header">Add Your Comment</div>
+      <form>
+        <div>
+          <textarea id="comment" rows="3" cols="30" placeholder="Comment"></textarea>
+        </div>
+        <button type="submit" (click)="addComment()">COMMENT</button>
+      </form>
+    </div>
+    <div>
+      <h4 class="header">Comments</h4>
+      <div id="comments">
+          <div *ngFor="let comment of comments | async">
+              {{comment.$value}}
+          </div>
+      </div>
+    </div>
+</div>
