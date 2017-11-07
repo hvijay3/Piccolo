@@ -1,16 +1,20 @@
 <div class="container">
-<div *ngIf="upload">
+<div *ngIf="currentUpload">
   <div class="progress">
     <div class="progress-bar progress-bar-animated" 
-    [ngStyle]="{ 'width': upload?.status + '%' }"></div>
+    [ngStyle]="{ 'width': currentUpload?.status + '%' }"></div>
   </div>
-  Progress: {{upload?.status}}% Complete
+  Progress: {{currentUpload?.status}}% Complete
 </div>
-<div class="container">
+<div class="box">
   <h2 class="heading">Upload New Images</h2>
-  <input type="file" 
-  (change)="manageFiles($event)" multiple>
+  <label>
+    <input type="file" class="button"
+    (change)="manageFiles($event)" multiple>
+  </label>>
   <button class="btn btn-primary" 
-  (click)="uploadFiles()">Upload Images</button>
+  [disabled]= "!selectedFiles"
+  (click)="uploadFiles()">Upload Images
+</button>
 </div>
 </div>
