@@ -1,4 +1,6 @@
-# Piccolo
+# Piccolo 
+
+[![Build Status](https://travis-ci.org/hvijay3/Piccolo.svg?branch=master)](https://travis-ci.org/hvijay3/Piccolo)
 
 This project is a basic clone of instagram application with functionalities such as maintaining user specific image database. You can create your profile , explore other people profiles . Give your comments , like or dislike on other people images. Apart from that you can also make friends and keep privacy.
 
