@@ -17,7 +17,8 @@ export class UploadService {
 
   constructor(private ngFire: AngularFireModule, private dbObject: AngularFireDatabase,
     private imageService: ImageService, private router: Router) {
-    this.rootDir = '/uploads/' + imageService.getUserId();
+      this.userId = imageService.getUserId();
+    this.rootDir = '/uploads/' + this.userId;
    }
 
   uploadFile(upload: Upload) {
@@ -60,6 +61,7 @@ export class UploadService {
   private writeUploadData(upload: Upload) {
     this.dbObject.list(`${this.rootDir}/`).push(upload);
     console.log('File saved!: ' + upload.url);
+   // this.router.navigate(['imagelist/' + this.userId]);
   }
 
   removeUpload(upload: ImageDetails, key: string) {
@@ -79,7 +81,7 @@ export class UploadService {
   private deleteUploadStorage(name: string) {
     const storageRef = firebase.storage().ref();
     storageRef.child(`${this.rootDir}/${name}`).delete();
-    this.router.navigate(['imagelist']);
+    this.router.navigate(['imagelist/' + this.userId]);
   }
 
   // method to write commentdata into database

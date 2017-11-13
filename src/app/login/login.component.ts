@@ -20,7 +20,7 @@ export class LoginComponent {
 
   signIn() {
     this.authService.login({ email: this.email, password: this.password })
-      .then(resolve => this.router.navigate(['imagelist']))
+      .then(resolve => this.router.navigate(['home'])) // home component
       .catch(error => this.errorMsg = error.message);
   }
 

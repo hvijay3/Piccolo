@@ -3,12 +3,13 @@
     <div class="container">
       <div class="navbar-header">
         <a class="navbar-brand logo" href="#">{{ title }}</a>
-      </div>
+      </div >
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav" *ngIf="(user|async)?.uid">
-          <li><a routerLink="/imagelist">Image-List</a></li>
+          <li><a href="imagelist/{{userIdValue}}">Image-List</a></li>
           <li><a routerLink="/upload">Upload</a></li>
-          <li><input type="text" id="search" class="input" style="margin-top: 12px;"placeholder="search user.."></li>
+          <li><input type="text" id="search" class="input" style="margin-top: 12px;"placeholder="search user..">
+            <button type="submit" (click)="profileSearch()">Search</button></li>
         </ul>
         <ul class="nav navbar-nav account">
           <li *ngIf="!(user|async)?.uid"><a routerLink="/login">Log In</a></li>

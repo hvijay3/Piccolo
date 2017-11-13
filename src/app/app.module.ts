@@ -27,6 +27,7 @@ import {UploadService} from './services/upload.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatButtonToggleModule } from '@angular/material';
 import { CommentComponent } from './comment/comment.component';
+import { OtheruserComponent } from './otheruser/otheruser.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { CommentComponent } from './comment/comment.component';
     ImageListComponent,
     ImageComponent,
     UploadComponent,
-    CommentComponent
+    CommentComponent,
+    OtheruserComponent
   ],
   imports: [
     BrowserModule,

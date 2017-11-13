@@ -2,7 +2,7 @@ import { browser, by, element, protractor } from 'protractor';
 
 export class AppPage {
   navigateTo() {
-    return browser.get('/');
+    return browser.get('/login');
   }
 
   getParagraphText() {
