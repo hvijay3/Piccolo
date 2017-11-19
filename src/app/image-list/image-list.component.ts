@@ -12,12 +12,15 @@ import { ActivatedRoute } from '@angular/router';
 export class ImageListComponent implements OnInit {
   images: Observable<ImageDetails[]>;
   private userId: String;
+  /* Get logged in user in a variable using home component constructor code 
+  Set a flag and geeter method for that. Setter method for resettong the flag*/
 
   constructor(private imageService: ImageService , private route: ActivatedRoute) {  }
 
   ngOnInit() {
     console.log('Inside image-list');
     this.userId = this.route.snapshot.params['id'];
+    /* set a flag if current_userid != loggedin userid */
     this.images = this.imageService.getImages(this.userId);           // pass user id here
   }
 }
