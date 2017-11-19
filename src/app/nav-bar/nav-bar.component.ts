@@ -42,6 +42,7 @@ export class NavBarComponent implements OnInit {
     console.log('Inside profileSearch');
     console.log(this.userIdValue);
    // this.imageService.setUserId(values);
+   // Map the username to userid again
     this.router.navigateByUrl('otheruser/' + this.userIdValue );
     // this.images = this.imageService.getImages(values);
   }

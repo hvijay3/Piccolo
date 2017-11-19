@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
+  /* Declare username variable */
   private loggedInUserId: String;
   constructor(private authService: AngularFireAuth, private router: Router , private authS : AuthenticationService) {
     this.authService.authState.subscribe(auth => {     // authState is an observable and we have subscribed to it
@@ -23,6 +24,9 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     console.log('in home component and user id is' + this.loggedInUserId  );
     this.router.navigate(['imagelist/' + this.loggedInUserId]);
+    /* Check if username is set for cuurent logged in userid is set in the db. 
+    Only if it is set navigate to imagelist else set the username variable and render html for getting username*/
   }
 
+  /* Onclick submit of username write to db.Create 1 userlist model */
 }
