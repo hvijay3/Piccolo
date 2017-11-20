@@ -16,14 +16,15 @@ export class NavBarComponent implements OnInit {
   title: 'Images';
   user: Observable<firebase.User>;
   images: Observable<ImageDetails[]>;
-  userIdValue: String;
+  searchUserId: String;
+  loggedUserId: String;
   // values = '';
 
   constructor(private authService: AuthenticationService, private router: Router,
      private imageService: ImageService, private authFireService: AngularFireAuth) {
     this.authFireService.authState.subscribe(auth => {     // authState is an observable and we have subscribed to it
       if (auth !== undefined && auth !== null) {
-      this.userIdValue = auth.uid;
+      this.loggedUserId = auth.uid;
       }
     });
    }
@@ -38,12 +39,11 @@ export class NavBarComponent implements OnInit {
   } */
 
   profileSearch() {
-    this.userIdValue = (<HTMLInputElement>document.getElementById('search')).value;
-    console.log('Inside profileSearch');
-    console.log(this.userIdValue);
+    this.searchUserId = (<HTMLInputElement>document.getElementById('search')).value;
+    console.log('Inside profileSearch ' + this.searchUserId);
    // this.imageService.setUserId(values);
    // Map the username to userid again
-    this.router.navigateByUrl('otheruser/' + this.userIdValue );
+    this.router.navigateByUrl('otheruser/' + this.searchUserId );
     // this.images = this.imageService.getImages(values);
   }
 

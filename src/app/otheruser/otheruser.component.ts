@@ -16,7 +16,7 @@ private userId: String;
   }
 
   ngOnInit() {
-    console.log('Inside image-list');
+    console.log('Inside Other-User ');
     this.userId = this.route.snapshot.params['id'];
     /* Get the search user name from the user id and also the follow list of logged in user
     if followlist contains search userid then navigate 
