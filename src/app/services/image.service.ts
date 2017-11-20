@@ -27,6 +27,7 @@ export class ImageService  {
                                                In order to use them we need to subscribe to them*/
   getImages(key: String): Observable<ImageDetails[]> {
     this.currentUser = key;
+    console.log ('Inside getImages ');
     return this.dbService.list('uploads/' + key + '/');        // here while retrieving we can also send userid with uploads
   }
 

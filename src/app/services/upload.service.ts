@@ -46,7 +46,7 @@ export class UploadService {
        // upload.creationDate = new Date();
         upload.url = uploadTask.snapshot.downloadURL;
         upload.name = upload.file.name;
-        //upload.comment = 'Hello';
+        // upload.comment = 'Hello';
         // Set default value for like and dislike
         upload.like = 0;
         upload.dislike = 0;
@@ -85,7 +85,7 @@ export class UploadService {
   }
 
   // method to write commentdata into database
-  writeCommentData(comment:Comment, path: string){
+  writeCommentData(comment: Comment, path: string) {
     this.dbObject.list(path).push(comment);
     console.log('Comment saved!: ' + comment);
   }
