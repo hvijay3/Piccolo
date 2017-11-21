@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import {Observable} from 'rxjs/Rx';
 import {AngularFireAuth} from 'angularfire2/auth';
-import {AngularFireDatabase} from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import {FirebaseApp} from 'angularfire2';
 import 'firebase/storage';
 import {ImageDetails} from '../models/imagedetails.model';
 import { Comment } from '../models/comment.model';
+import { UserList } from '../models/userList.model';
 import * as firebase from 'firebase';
 
 
@@ -13,6 +14,8 @@ import * as firebase from 'firebase';
 export class ImageService  {
   userId: String; // user Id for logged user
   currentUser: String;
+  isUserMapped: boolean;  // [TODO] used to enable/disable Nav-bar links
+
   constructor(private authService: AngularFireAuth, private dbService: AngularFireDatabase) {
     this.authService.authState.subscribe(auth => {     // authState is an observable and we have subscribed to it
       if (auth !== undefined && auth !== null) {
@@ -36,6 +39,10 @@ export class ImageService  {
     return firebase.database().ref('uploads/' + this.currentUser + '/' + key).once('value')
       .then((snap) => snap.val());
   }
+
+  getUsers(): Observable<UserList[]> {
+    return this.dbService.list('userList/' + this.userId + '/');
+  }
   getUserId(): String {
     return this.userId;
   }
@@ -46,5 +53,13 @@ export class ImageService  {
   }
   setUserId (uid: string) {
     this.userId = uid;
+  }
+
+  setIsUserMapped(flag: boolean) {
+    this.isUserMapped = flag;
+  }
+
+  getIsUserMapped() {
+    return this.isUserMapped;
   }
 }
