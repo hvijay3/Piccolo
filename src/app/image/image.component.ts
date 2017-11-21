@@ -49,25 +49,25 @@ export class ImageComponent implements OnInit {
     this.uploadService.removeUpload(this.fileUpload, this.route.snapshot.params['id']);
   }
 
-  likeImage() {    
-    var keyi = this.route.snapshot.params['id'];
+  likeImage() {
+    const keyi = this.route.snapshot.params['id'];
     console.log(this.fileUpload.like);
-    var count = this.fileUpload.like + 1;
+    const count = this.fileUpload.like + 1;
     console.log(count);
-    var user = this.imageService.getUserId();
-    var db = firebase.database();
-    console.log('/uploads' + '/' + user + '/' + keyi)
+    const user = this.imageService.getUserId();               // returns logged-in userid
+    const db = firebase.database();
+    console.log('/uploads' + '/' + user + '/' + keyi);
     db.ref('/uploads' + '/' + user + '/' + keyi).update({like: count});
   }
 
   dislikeImage() {
-    var keyi = this.route.snapshot.params['id'];
+    const keyi = this.route.snapshot.params['id'];
     console.log(this.fileUpload.dislike);
-    var count = this.fileUpload.dislike + 1;
+    const count = this.fileUpload.dislike + 1;
     console.log(count);
-    var user = this.imageService.getUserId();
-    var db = firebase.database();
-    console.log('/uploads' + '/' + user + '/' + keyi)
+    const user = this.imageService.getUserId();
+    const db = firebase.database();
+    console.log('/uploads' + '/' + user + '/' + keyi);
     db.ref('/uploads' + '/' + user + '/' + keyi).update({dislike: count});
   }
 

@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { ImageService } from './image.service';
 import { Comment } from '../models/comment.model';
+import { UserList } from '../models/userList.model';
 
 
 @Injectable()
@@ -88,5 +89,11 @@ export class UploadService {
   writeCommentData(comment: Comment, path: string) {
     this.dbObject.list(path).push(comment);
     console.log('Comment saved!: ' + comment);
+  }
+
+  // method to map UserName data into database for the corressponding UID
+  writeUserNameData(userList: UserList, path: string) {
+    this.dbObject.list(path).push(userList);
+    console.log('Username saved!: ' + userList);
   }
 }

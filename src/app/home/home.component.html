@@ -1,4 +1,11 @@
-<p>
-  Home works {{loggedInUserId}}
-  <!-- Add a html form to add user id !-->
-</p>
+  <div class="username-box">
+      <div class="username-form">
+        <div class="header">Add Your Username</div>
+        <form>
+          <div>
+            <textarea id="username" rows="3" cols="30" placeholder="Username"></textarea>
+          </div>
+          <button type="submit" (click)="onSubmitUsername()">Add</button>
+        </form>
+      </div>
+  </div>
