@@ -17,7 +17,34 @@ body{
 h4{
   margin: 5px 20px;
 }
-  
+
+.ui.comments .reply.form textarea {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+.ui.comments .comment .metadata{
+  padding-right: 3em;
+  float:right;
+}
+.ui.comments .comment .actions a{
+  margin-left: 2.5em;
+}
+.ui.form .field {
+  padding-right: 1.5em;
+  padding-left: 1.5em;
+}
+
+.ui.primary.button {
+  margin-left: 1.5em;
+  margin-bottom: 1.5em;
+}
+.author{
+  margin-left: 2em;
+}
+.ui.comments:first-child {
+  padding-top: 2em;
+}
 span{
   float: right;
   margin-right: 10px;
@@ -36,7 +63,12 @@ hr{
   display: flex;
   justify-content: center;
 }
+.ui.comments {
 
+  max-width: 650px;
+  max-height: 400px;
+  overflow: auto;
+}
 .comment-box{
   min-height: 660px;
   min-width: 500px;
@@ -77,19 +109,6 @@ textarea{
 input[type="text"]{
   width: 50%;
   margin-bottom: 15px;
-}
-
-button{
-  font-weight: 400;
-  margin: 12px 0 0 10px;
-  border: 0;
-  color: #fff;
-  font-size: 15px;
-  background: #D3775D;
-  padding: 12px 20px 12px 20px;
-  text-decoration: none;
-  transition: all .2s ease;
-
 }
 
 .imageb{

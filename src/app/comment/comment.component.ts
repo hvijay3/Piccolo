@@ -51,6 +51,8 @@ export class CommentComponent implements OnInit {
     // console.log('calling write method');
     this.uploadService.writeCommentData(this.comment, path);
     this.displaycomment();
+    // Reset the value of textbox
+    (<HTMLInputElement>document.getElementById('comment')).value = "";
   }
 
 

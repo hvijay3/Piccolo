@@ -28,6 +28,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCardModule, MatMenuModule, MatToolbarModule, MatIconModule, MatButtonToggleModule } from '@angular/material';
 import { CommentComponent } from './comment/comment.component';
 import { OtheruserComponent } from './otheruser/otheruser.component';
+import {SuiModule} from 'ng2-semantic-ui';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,8 @@ import { OtheruserComponent } from './otheruser/otheruser.component';
     MatToolbarModule,
     MatIconModule,
     MatCardModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    SuiModule
   ],
 
   providers: [AuthenticationService,
