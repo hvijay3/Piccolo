@@ -13,6 +13,7 @@ import * as firebase from 'firebase';
 @Injectable()
 export class ImageService  {
   userId: String; // user Id for logged user
+  userName: String; // Username of logged in user
   currentUser: String;
   isUserMapped: boolean;  // [TODO] used to enable/disable Nav-bar links
 
@@ -53,6 +54,17 @@ export class ImageService  {
   }
   setUserId (uid: string) {
     this.userId = uid;
+  }
+
+  // Set the username for logged in user
+  setUserName(uname: string){
+    this.userName = uname;
+    console.log(this.userName);
+  }
+
+  // Get the username of logged in user
+  getUserName(){
+    return this.userName;
   }
 
   setIsUserMapped(flag: boolean) {
