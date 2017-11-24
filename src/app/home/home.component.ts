@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   /* Declare username variable */
   users: Observable<UserList[]>; // list of users
-  user_name: string;
+  username: string;
   isUserSet: boolean;
   private loggedInUserId: String;
   constructor(private authService: AngularFireAuth, private router: Router,
@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
         if (snapshot !== undefined && snapshot.userName !== null) {
           // Set the username field in image service so that it can be retrieved later without querying to database.
           this.imageService.setUserName(snapshot.userName);
-          this.user_name = snapshot.userName;          
+          this.username = snapshot.userName;          
           this.router.navigate(['imagelist/' + this.loggedInUserId]);
         }
       });
@@ -69,10 +69,14 @@ export class HomeComponent implements OnInit {
     const userList: UserList = new UserList(data);
     const path = '/userList/' + this.loggedInUserId + '/';
     this.uploadService.writeUserNameData(userList, path);
+    this.username = data; 
     // Set the username field in image service so that it can be retrieved later without querying to database.
     this.imageService.setUserName(data.toString());
     // this.isUserSet = true;
     this.router.navigate(['imagelist/' + this.loggedInUserId]);
   }
 
-}
+  getUserName() {
+    return this.username;
+  }
+} 
