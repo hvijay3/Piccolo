@@ -17,7 +17,7 @@ export class SignupComponent {
 
   createAccount() {
     this.authService.createAccount({ email: this.email, password: this.password })
-      .then(resolve => this.router.navigate(['login']))                 // a popup congratulating succesful signup or an error
+      .then(resolve => this.router.navigate(['login']))                 // a popup congratulating successful signup or an error
       .catch(error => this.errorMsg = error.message);
   }
 }
