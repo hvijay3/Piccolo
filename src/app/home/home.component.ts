@@ -28,12 +28,12 @@ export class HomeComponent implements OnInit {
       this.loggedInUserId = auth.uid;
       }
     });
-
+    
     // console.log('Logged in user is ' + this.loggedInUserId);
     // console.log('Logged in user using ImageService is ' + this.imageService.getUserId);
     // console.log(this.users);
    }
-
+  
   ngOnInit() {
     console.log('in home component and user id is' + this.loggedInUserId  );
     // this.isUserSet = true;
@@ -68,7 +68,9 @@ export class HomeComponent implements OnInit {
     const userList: UserList = new UserList(data, this.loggedInUserId);
     const path = '/userList/';
     this.uploadService.writeUserNameData(userList, path);
-    this.username = data;
+    this.username = data; 
+    // Set the username field in image service so that it can be retrieved later without querying to database.
+    this.imageService.setUserName(data.toString());
     // this.isUserSet = true;
     this.router.navigate(['imagelist/' + this.loggedInUserId]);
   }
@@ -76,4 +78,4 @@ export class HomeComponent implements OnInit {
   getUserName() {
     return this.username;
   }
-}
+} 

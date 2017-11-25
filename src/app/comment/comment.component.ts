@@ -8,7 +8,6 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import * as firebase from 'firebase';
 
-
 @Component({
   selector: 'app-comment',
   templateUrl: './comment.component.html',
@@ -21,6 +20,7 @@ export class CommentComponent implements OnInit {
   comment: Comment =  new Comment();
   comments: Observable<Comment[]>;
   private dbObject: AngularFireDatabase;
+  private userName = '';
 
   constructor(private imageService: ImageService, private route: ActivatedRoute, private uploadService: UploadService) {
   }
@@ -29,6 +29,7 @@ export class CommentComponent implements OnInit {
     this.keyi = this.route.snapshot.params['id'];
     console.log('keyi value is' + this.keyi);
     this.comments = this.imageService.getComments(this.keyi);
+    this.userName = this.imageService.getUserName().toString();
   }
 
   displaycomment() {
@@ -41,16 +42,18 @@ export class CommentComponent implements OnInit {
     const data = (<HTMLInputElement>document.getElementById('comment')).value;
     // console.log(data);
     // console.log('Inside addComment');
-    const user = this.imageService.getUserId();
+    const user = this.imageService.getUserId();// Need to be used for navigating to the imagelist of user
     // console.log(user);
-    this.comment.author = user.toString();
+    this.comment.author = this.userName;  
     this.comment.data = data;
     // console.log(this.comment);
     const path = '/comments/' + this.keyi;
-    // console.log(path);
-    // console.log('calling write method');
     this.uploadService.writeCommentData(this.comment, path);
     this.displaycomment();
+    console.log(this.comment.timestamp);
+    console.log(this.imageService.getUserName());
+    // Reset the value of textbox
+    (<HTMLInputElement>document.getElementById('comment')).value = "";
   }
 
 
