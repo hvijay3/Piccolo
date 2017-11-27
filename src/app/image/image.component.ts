@@ -57,6 +57,7 @@ export class ImageComponent implements OnInit {
     const db = firebase.database();
     console.log('/uploads' + '/' + user + '/' + keyi);
     db.ref('/uploads' + '/' + user + '/' + keyi).update({like: count});
+    (<HTMLInputElement>document.getElementById('no_likes')).value = count + " Likes";
   }
 
   dislikeImage() {

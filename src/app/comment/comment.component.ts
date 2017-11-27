@@ -23,13 +23,14 @@ export class CommentComponent implements OnInit {
   private userName = '';
 
   constructor(private imageService: ImageService, private route: ActivatedRoute, private uploadService: UploadService) {
+    this.userName = this.imageService.getUserName().toString();
   }
 
   ngOnInit() {
     this.keyi = this.route.snapshot.params['id'];
     console.log('keyi value is' + this.keyi);
     this.comments = this.imageService.getComments(this.keyi);
-    this.userName = this.imageService.getUserName().toString();
+    // this.userName = this.imageService.getUserName().toString();
   }
 
   displaycomment() {
