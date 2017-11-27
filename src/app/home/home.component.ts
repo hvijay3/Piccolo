@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   users: Observable<UserList[]>; // list of users
   username: string;
   isUserSet: boolean;
-  private loggedInUserId: String;
+  private loggedInUserId: string;
   constructor(private authService: AngularFireAuth, private router: Router,
     private authS: AuthenticationService, private imageService: ImageService,
     private uploadService: UploadService, private db: AngularFireDatabase) {
@@ -40,12 +40,12 @@ export class HomeComponent implements OnInit {
     this.users = this.imageService.getUsers();
     console.log(this.users);
     this.users.subscribe(snapshots => {
-      snapshots.forEach(snapshot => {
-        if (snapshot !== undefined && snapshot.userName !== null) {
-          // Set the username field in image service so that it can be retrieved later without querying to database.
-          this.imageService.setUserName(snapshot.userName);
-          this.username = snapshot.userName;          
-          this.router.navigate(['imagelist/' + this.loggedInUserId]);
+      snapshots.forEach(snapshot => {         
+        if (snapshot !== undefined && snapshot.userName !== null
+          && snapshot.userId === this.loggedInUserId) {// try removing username !== null check
+            this.imageService.setUserName(snapshot.userName);
+            this.username = snapshot.userName;
+            this.router.navigate(['imagelist/' + this.loggedInUserId]);
         }
       });
     });
@@ -66,8 +66,8 @@ export class HomeComponent implements OnInit {
   /* Onclick submit of username write to db.Create 1 userlist model */
   onSubmitUsername() {
     const data = (<HTMLInputElement>document.getElementById('username')).value;
-    const userList: UserList = new UserList(data);
-    const path = '/userList/' + this.loggedInUserId + '/';
+    const userList: UserList = new UserList(data, this.loggedInUserId);
+    const path = '/userList/';
     this.uploadService.writeUserNameData(userList, path);
     this.username = data; 
     // Set the username field in image service so that it can be retrieved later without querying to database.

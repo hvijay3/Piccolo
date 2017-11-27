@@ -8,6 +8,7 @@ import {ImageDetails} from '../models/imagedetails.model';
 import { Comment } from '../models/comment.model';
 import { UserList } from '../models/userList.model';
 import * as firebase from 'firebase';
+import { FollowList } from '../models/followList.model';
 
 
 @Injectable()
@@ -16,6 +17,8 @@ export class ImageService  {
   userName: String; // Username of logged in user
   currentUser: String;
   isUserMapped: boolean;  // [TODO] used to enable/disable Nav-bar links
+  loggedInUserName: String; // Username of logged in user
+  searchUserName: string; // username for the search user
 
   constructor(private authService: AngularFireAuth, private dbService: AngularFireDatabase) {
     this.authService.authState.subscribe(auth => {     // authState is an observable and we have subscribed to it
@@ -42,7 +45,11 @@ export class ImageService  {
   }
 
   getUsers(): Observable<UserList[]> {
-    return this.dbService.list('userList/' + this.userId + '/');
+    return this.dbService.list('userList/');
+  }
+
+  getFollowees(): Observable<FollowList[]> {
+    return this.dbService.list('followList/' + this.userId + '/');
   }
   getUserId(): String {
     return this.userId;
@@ -73,5 +80,27 @@ export class ImageService  {
 
   getIsUserMapped() {
     return this.isUserMapped;
+  }
+
+  // Set the username for logged in user
+  setLoggedInUserName(userName: string) {
+    this.loggedInUserName = userName;
+    console.log(this.loggedInUserName);
+  }
+
+  // Get the username for logged in user
+  getLoggedInUserName() {
+    return this.loggedInUserName;
+  }
+
+  // Set the username for Search User
+  setSearchUserName(userName: string) {
+    this.searchUserName = userName;
+    console.log(this.searchUserName);
+  }
+
+  // Get the username for the search user
+  getSearchUserName() {
+    return this.searchUserName;
   }
 }

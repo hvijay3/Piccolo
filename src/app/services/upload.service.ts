@@ -8,6 +8,7 @@ import * as firebase from 'firebase';
 import { ImageService } from './image.service';
 import { Comment } from '../models/comment.model';
 import { UserList } from '../models/userList.model';
+import { FollowList } from '../models/followList.model';
 
 
 @Injectable()
@@ -95,5 +96,11 @@ export class UploadService {
   writeUserNameData(userList: UserList, path: string) {
     this.dbObject.list(path).push(userList);
     console.log('Username saved!: ' + userList);
+  }
+
+  // method to store followees list data into database for the logged in user
+  writeFolloweesData(followList: FollowList, path: string) {
+    this.dbObject.list(path).push(followList);
+    console.log('Username saved!: ' + followList);
   }
 }
