@@ -1,5 +1,5 @@
 <div class="comment-box">
-    <div class="comment-form">
+    <!-- <div class="comment-form">
       <div class="header">Add Your Comment</div>
       <form>
         <div>
@@ -7,13 +7,54 @@
         </div>
         <button type="submit" (click)="addComment()">COMMENT</button>
       </form>
-    </div>
-    <div>
+    </div> -->
+    <!-- <div>
       <h4 class="header">Comments</h4>
-      <div id="comments">
-          <div *ngFor="let comment of comments | async">
+      <div id="comments" *ngFor="let comment of comments | async">
               {{comment.data}}
-          </div>
       </div>
-    </div>
+    </div> -->
+    <!-- <h3 class="comments-title">
+      <span class="bagde">{{comments.length}}</span>
+      Comments
+    </h3>
+    <ul class="media-list comment-detail-list">
+      <li class="media" *ngFor="let comment of comments | async">
+        <div class="comment-box">
+        <article>
+          <div class="pull-left comment-info">
+            <a href="#" class="author">{{ comment.author }}</a><br />
+            <time>{{ comment.timestamp | date:"MM/dd/yyyy" }}</time>
+          </div>
+              <p>{{ comment.data }}</p>
+        </article>
+      </div>
+      </li>
+    </ul> -->
+
+    <div class="ui comments">
+        <div class="comment" >
+          <div class="content" *ngFor="let comment of comments | async">
+            <a class="author">{{ comment.author }}</a>
+            <div class="metadata">
+              <!-- <div class="date">1 day ago</div> -->
+              <time>{{ comment.timestamp | date:"MM/dd/yyyy" }}</time>
+            </div>
+            <div class="text">
+              <p> {{ comment.data }} </p>
+            </div>
+            <!-- <div class="actions">
+              <a class="reply">Delete</a>
+            </div> -->
+          </div>
+          
+        </div>
+        
+      </div>
+      <form class="ui reply form">
+          <div class="field">
+            <textarea id = "comment" placeholder="Comment"></textarea>
+          </div>
+          <button class="ui primary button" type="submit" (click)="addComment()">COMMENT</button>
+        </form>
 </div>

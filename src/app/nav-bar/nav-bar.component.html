@@ -6,7 +6,8 @@
       </div >
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav" *ngIf="(user|async)?.uid">
-          <li><a href="imagelist/{{loggedUserId}}">Image-List</a></li>
+            <!-- <li><a routerLink="imagelist/{{loggedUserId}}">Image-List</a></li> -->
+            <li><a routerLink="/home">Image-List</a></li>
           <li><a routerLink="/upload">Upload</a></li>
           <li><input type="text" id="search" class="input" style="margin-top: 12px;"placeholder="search user..">
             <button type="submit" (click)="profileSearch()">Search</button></li>
