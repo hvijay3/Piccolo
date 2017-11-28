@@ -30,7 +30,7 @@ export class CommentComponent implements OnInit {
     this.keyi = this.route.snapshot.params['id'];
     console.log('keyi value is' + this.keyi);
     this.comments = this.imageService.getComments(this.keyi);
-    // this.userName = this.imageService.getUserName().toString();
+    //this.userName = this.imageService.getUserName().toString();
   }
 
   displaycomment() {
