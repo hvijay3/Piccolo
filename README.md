@@ -4,6 +4,20 @@
 
 This project is a basic clone of instagram application with functionalities such as maintaining user specific image database. You can create your profile , explore other people profiles . Give your comments , like or dislike on other people images. Apart from that you can also make friends and keep privacy.
 
+Team members :
+
+Harshit Vijayvargia
+
+Ankit Singh
+
+Rahul Chawan
+
+Follow these instructions to run the project
+
+Open terminal and run npm install
+Cd to the project folder and run ng serve
+On your browser, open localhost:8080
+
 ## Installing 
 
 A step by step series that tells you how to get a development env running
