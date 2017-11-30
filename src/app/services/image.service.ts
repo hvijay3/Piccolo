@@ -103,4 +103,9 @@ export class ImageService  {
   getSearchUserName() {
     return this.searchUserName;
   }
+
+  // Get current User. So that we can access the owner of the concerned image while updating database
+  getCurrentUserId(){
+    return this.currentUser;
+  }
 }
