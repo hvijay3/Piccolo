@@ -22,6 +22,7 @@ export class ImageComponent implements OnInit {
   private ngFire: AngularFireModule;
   private dbObject: AngularFireDatabase;
   private fileUpload: ImageDetails;
+  likes = 0;
 
   constructor(private imageService: ImageService, private route: ActivatedRoute, private uploadService: UploadService) { }
 
@@ -38,6 +39,14 @@ export class ImageComponent implements OnInit {
   ngOnInit() {
     this.getUrl(this.route.snapshot.params['id']);
     this.getFileUpload(this.route.snapshot.params['id']);
+    this.get_likes();
+  }
+
+  // Method to get the number of likes from database
+  get_likes(){
+    const keyi = this.route.snapshot.params['id'];
+    this.imageService.getImage(keyi)
+    .then(imageObj => this.likes = imageObj.like);
   }
 
   deleteFileUpload() {
@@ -49,26 +58,32 @@ export class ImageComponent implements OnInit {
   }
 
   likeImage() {
+    const element = <HTMLInputElement> document.getElementById("checkbox");
+    const isChecked = element.checked;
     const keyi = this.route.snapshot.params['id'];
-    console.log(this.fileUpload.like);
-    const count = this.fileUpload.like + 1;
-    console.log(count);
-    const user = this.imageService.getUserId();               // returns logged-in userid
+    const user = this.imageService.getCurrentUserId();               // returns logged-in userid
     const db = firebase.database();
-    console.log('/uploads' + '/' + user + '/' + keyi);
-    db.ref('/uploads' + '/' + user + '/' + keyi).update({like: count});
-    (<HTMLInputElement>document.getElementById('no_likes')).value = count + " Likes";
+    console.log(isChecked);
+    if(isChecked){
+      const count = this.likes + 1;
+      db.ref('/uploads' + '/' + user + '/' + keyi).update({like: count});
+    }
+    else{
+      const count = this.likes - 1;
+      db.ref('/uploads' + '/' + user + '/' + keyi).update({like: count});
+    }    
+    this.get_likes();
   }
 
-  dislikeImage() {
-    const keyi = this.route.snapshot.params['id'];
-    console.log(this.fileUpload.dislike);
-    const count = this.fileUpload.dislike + 1;
-    console.log(count);
-    const user = this.imageService.getUserId();
-    const db = firebase.database();
-    console.log('/uploads' + '/' + user + '/' + keyi);
-    db.ref('/uploads' + '/' + user + '/' + keyi).update({dislike: count});
-  }
+  // dislikeImage() {
+  //   const keyi = this.route.snapshot.params['id'];
+  //   console.log(this.fileUpload.dislike);
+  //   const count = this.fileUpload.dislike + 1;
+  //   console.log(count);
+  //   const user = this.imageService.getUserId();
+  //   const db = firebase.database();
+  //   console.log('/uploads' + '/' + user + '/' + keyi);
+  //   db.ref('/uploads' + '/' + user + '/' + keyi).update({dislike: count});
+  // }
 
 }
