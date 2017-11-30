@@ -10,7 +10,7 @@ Harshit Vijayvargia
 
 Ankit Singh
 
-Rahul Chawan
+Rahul Chavan
 
 Follow these instructions to run the project
 
