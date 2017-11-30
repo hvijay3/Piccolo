@@ -7,6 +7,7 @@
     <div class="parent-container">
         <div fxLayout="row">
         </div>
+        <h4>{{currentUserName}}!</h4>
         <md-grid-list cols="3" rowHeight="200px">
             <md-grid-tile *ngFor="let image of images | async" [routerLink]="['/image', image.$key]">
                 <div class="thumbnail">
